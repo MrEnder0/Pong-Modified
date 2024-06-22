@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jlfslyfbhid5"]
+[gd_scene load_steps=14 format=3 uid="uid://jlfslyfbhid5"]
 
 [ext_resource type="Script" path="res://logic/paddle.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dvrb8efddt0aa" path="res://paddle.png" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://drgpdyyomyqpl" path="res://separator.png" id="6"]
 [ext_resource type="Script" path="res://logic/wall.gd" id="7"]
 [ext_resource type="Script" path="res://logic/ceiling_floor.gd" id="8"]
+[ext_resource type="Script" path="res://Left Score.gd" id="9_22km5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 32)
@@ -96,18 +97,19 @@ shape = SubResource("4")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(320, 200)
 
-[node name="LeftScore" type="Label" parent="."]
+[node name="Left Score" type="RichTextLabel" parent="."]
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
 text = "0"
+fit_content = true
+script = ExtResource("9_22km5")
 
-[node name="RightScore" type="Label" parent="."]
+[node name="Right Score" type="RichTextLabel" parent="."]
 offset_left = 600.0
-offset_top = -1.0
 offset_right = 640.0
-offset_bottom = 22.0
+offset_bottom = 40.0
 text = "0"
-horizontal_alignment = 2
+fit_content = true
 
 [connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
 [connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
