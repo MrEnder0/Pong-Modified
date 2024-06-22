@@ -7,6 +7,7 @@ var _up
 var _down
 
 @onready var _screen_size_y = get_viewport_rect().size.y
+@onready var _initial_pos = position
 
 func _ready():
 	var n = String(name).to_lower()
@@ -26,3 +27,6 @@ func _on_area_entered(area):
 	if area.name == "Ball":
 		# Assign new direction.
 		area.direction = Vector2(_ball_dir, randf() * 2 - 1).normalized()
+
+func reset():
+	position = _initial_pos

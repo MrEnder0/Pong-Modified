@@ -1,6 +1,8 @@
 extends Area2D
 
 @onready var ball = $"../Ball"
+@onready var left = $"../Left"
+@onready var right = $"../Right"
 @onready var left_score = $"../LeftScore"
 @onready var right_score = $"../RightScore"
 
@@ -27,3 +29,5 @@ func _on_wall_area_entered(area):
 		
 	if area.name == "Ball":
 		area.reset()
+		left.reset()
+		right.reset()

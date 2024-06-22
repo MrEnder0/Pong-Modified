@@ -8,6 +8,7 @@ var target_node
 var dir
 
 @onready var _screen_size_y = get_viewport_rect().size.y
+@onready var _initial_pos = position
 @onready var ball = $"../Ball"
 
 func _ready():
@@ -30,3 +31,6 @@ func _on_area_entered(area):
 	if area.name == "Ball":
 		# Assign new direction.
 		area.direction = Vector2(_ball_dir, randf() * 2 - 1).normalized()
+
+func reset():
+	position = _initial_pos
